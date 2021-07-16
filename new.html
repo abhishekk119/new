@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Calculator</title>
+<script>
+    function display(num) {
+    document.getElementById("history_value").innerHTML += num;
+}
+
+function allClear() {
+    document.getElementById("history_value").innerHTML = "";
+    document.getElementById("result_value").innerHTML = "";
+}
+
+function evaL() {
+    document.getElementById("result_value").innerHTML = eval(document.getElementById("history_value").innerHTML)
+}
+
+function remLast() {
+    let x = document.getElementById("history_value").innerHTML;
+    let y= x.substring(0, x.length-1);
+    document.getElementById("history_value").innerHTML = y;
+}
+let count = 1;
+function brAckets() {
+    
+    if ( count % 2 != 0){
+        document.getElementById("history_value").innerHTML += "(";
+        count++;
+    }
+    
+    else {
+        document.getElementById("history_value").innerHTML += ")";
+        count++;
+    }
+    
+    
+}
+</script>
+<style>
+    #calculator {
+    background-color: rgb(245, 245, 245);
+        border-radius: 5px;
+        position: relative;
+        width: 330px;
+        height: 550px;
+        margin: 10px auto;
+        top: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ;
+}
+
+#history {
+    height: 45px;
+    text-align: right;
+    color: rgb(10, 10, 10);
+    font-size: 25px;
+    padding: 10px;  
+}
+#result {
+    height: 35px;
+    text-align: right;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 30px;
+}
+#display {
+    height: 200px;
+    
+}
+#keyboard{
+    height: 350px;
+    margin: 1px 19px
+
+}
+.button {
+        background-color: rgb(62, 62, 63);
+        border: none;
+        color: white;
+        height: 60px;
+        width: 60px;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 5px 5px;
+        cursor: pointer;
+        border-radius: 50px;
+        }
+.opbutton {
+        background-color: rgb(136, 127, 236);
+        border: none;
+        color: white;
+        height: 60px;
+        width: 60px;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 5px 5px;
+        cursor: pointer;
+        border-radius: 50px;
+}
+.equalbutton{
+        background-color: rgb(33, 214, 33);
+        border: none;
+        color: white;
+        height: 60px;
+        width: 60px;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 5px 5px;
+        cursor: pointer;
+        border-radius: 50px;
+}
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0, 0, 0, 0.3)), url("white.jpg");
+}
+
+</style>
+</head>
+<body>
+    <div id="calculator">
+        <div id="display">
+
+            <div id="history">
+                <p id="history_value"></p>
+            </div>
+        
+            <div id="result">
+                <p id="result_value"></p>
+            </div>
+        </div>
+
+
+
+        <div id="keyboard">
+            <div>
+                <button type="button" class="button" onclick=display(7)>7</button>
+                <button type="button" class="button" onclick=display(8)>8</button>
+                <button type="button" class="button" onclick=display(9)>9</button>
+                <button type="button" class="opbutton" onclick="document.getElementById('history_value').innerHTML = document.getElementById('history_value').innerHTML + '+'">&#43</button>
+                <br>
+                <button type="button" class="button" onclick=display(4)>4</button>
+                <button type="button" class="button" onclick=display(5)>5</button>
+                <button type="button" class="button" onclick=display(6)>6</button>
+                <button type="button" class="opbutton" onclick="document.getElementById('history_value').innerHTML = document.getElementById('history_value').innerHTML + '-'">&#8722</button>
+                <br>
+                <button type="button" class="button" onclick=display(1)>1</button>
+                <button type="button" class="button" onclick=display(2)>2</button>
+                <button type="button" class="button" onclick=display(3)>3</button>
+                <button type="button" class="opbutton" onclick="document.getElementById('history_value').innerHTML = document.getElementById('history_value').innerHTML + '/'">&#47</button>
+                <br>
+                <button type="button" class="button" onclick=allClear()>C</button>
+                <button type="button" class="button" onclick=display(0)>0</button>
+                <button type="button" class="opbutton" onclick="document.getElementById('history_value').innerHTML = document.getElementById('history_value').innerHTML + '*'">&#42</button>
+                <button type="button" class="opbutton" onclick="document.getElementById('history_value').innerHTML = document.getElementById('history_value').innerHTML + '.'">&#46</button>
+                <br>
+                <button type="button" class="opbutton" onclick="document.getElementById('history_value').innerHTML = document.getElementById('history_value').innerHTML + '%'">&#37</button>
+                <button type="button" class="opbutton" onclick=remLast()>D</button>
+                <button type="button" class="opbutton" onclick=brAckets()>()</button>
+                <button type="button" class="equalbutton" onclick= evaL()>&#61</button>
+            </div>
+                
+        </div>
+    </div>
+</body>
+</html>

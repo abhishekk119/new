@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculatot</title>
+<script>
+
+function display(num) {
+    document.getElementById("display_value").innerHTML += num;
+}
+
+function allClear() {
+    document.getElementById("display_value").innerHTML = "";
+    document.getElementById("result_value").innerHTML = "";
+}
+
+function evaL() {
+    document.getElementById("result_value").innerHTML = eval(document.getElementById("display_value").innerHTML)
+}
+
+function remLast() {
+    let x = document.getElementById("display_value").innerHTML;
+    let y= x.substring(0, x.length-1);
+    document.getElementById("display_value").innerHTML = y;
+}
+let count = 1;
+function brAckets() {
+    
+    if ( count % 2 != 0){
+        document.getElementById("display_value").innerHTML += "(";
+        count++;
+    }
+    
+    else {
+        document.getElementById("display_value").innerHTML += ")";
+        count++;
+    }
+    
+    
+}
+</script>
+<style>
+.button {
+        background-color: rgb(62, 62, 63);
+        border: none;
+        color: white;
+        height: 60px;
+        width: 60px;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 5px 5px;
+        cursor: pointer;
+        border-radius: 50px;
+        }
+.opbutton {
+        background-color: rgb(136, 127, 236);
+        border: none;
+        color: white;
+        height: 60px;
+        width: 60px;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 5px 5px;
+        cursor: pointer;
+        border-radius: 50px;
+}
+.equalbutton{
+        background-color: rgb(33, 214, 33);
+        border: none;
+        color: white;
+        height: 60px;
+        width: 60px;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 5px 5px;
+        cursor: pointer;
+        border-radius: 50px;
+}
+
+
+body {
+    background-color: rgb(221, 221, 221);
+}
+#display {
+    height: 80px;
+    width: 22.5%;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(109, 109, 109);
+    border-radius: 5px;
+    border: 1px solid rgb(90, 90, 90);
+    background-color: rgb(10, 10, 10);
+    
+}
+#result {
+    height: 80px;
+    width: 22.5%;
+    text-align: right;
+    font-size: 30px;
+    font-weight: bold;
+    color:rgb(228, 225, 42);
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 5px;
+    background-color: rgb(12, 12, 12);
+    
+}
+#keyboard {
+    height: 350px;
+    width: 22.5%;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(90, 90, 90);
+    
+}
+#display_value {
+    padding: 10px 10px;
+}
+#result_value {
+    padding: 10px 10px;
+}
+</style>
+</head>
+<body>
+    <div id="display">
+        <p id="display_value"></p>
+    </div>
+
+
+    <div id="result">
+        <p id="result_value"></p>
+    </div>
+
+
+    <div id="keyboard">
+        <button type="button" class="button" onclick=display(7)>7</button>
+            <button type="button" class="button" onclick=display(8)>8</button>
+            <button type="button" class="button" onclick=display(9)>9</button>
+            <button type="button" class="opbutton" onclick="document.getElementById('display_value').innerHTML = document.getElementById('display_value').innerHTML + '+'">&#43</button>
+            <br>
+            <button type="button" class="button" onclick=display(4)>4</button>
+            <button type="button" class="button" onclick=display(5)>5</button>
+            <button type="button" class="button" onclick=display(6)>6</button>
+            <button type="button" class="opbutton" onclick="document.getElementById('display_value').innerHTML = document.getElementById('display_value').innerHTML + '-'">&#8722</button>
+            <br>
+            <button type="button" class="button" onclick=display(1)>1</button>
+            <button type="button" class="button" onclick=display(2)>2</button>
+            <button type="button" class="button" onclick=display(3)>3</button>
+            <button type="button" class="opbutton" onclick="document.getElementById('display_value').innerHTML = document.getElementById('display_value').innerHTML + '/'">&#47</button>
+            <br>
+            <button type="button" class="button" onclick=allClear()>C</button>
+            <button type="button" class="button" onclick=display(0)>0</button>
+            <button type="button" class="opbutton" onclick="document.getElementById('display_value').innerHTML = document.getElementById('display_value').innerHTML + '*'">&#42</button>
+            <button type="button" class="opbutton" onclick="document.getElementById('display_value').innerHTML = document.getElementById('display_value').innerHTML + '.'">&#46</button>
+            <br>
+            <button type="button" class="opbutton" onclick="document.getElementById('display_value').innerHTML = document.getElementById('display_value').innerHTML + '%'">&#37</button>
+            <button type="button" class="opbutton" onclick=remLast()>D</button>
+            <button type="button" class="opbutton" onclick=brAckets()>()</button>
+            <button type="button" class="equalbutton" onclick= evaL()>&#61</button>
+    </div>
+    
+</body>
+</html>
